@@ -4,11 +4,12 @@ import { fetchAlphabets } from '@/components/Redux/store/slices/alphabet-slice';
 import { selectAlphabet } from '@/components/Redux/store/slices/selectors';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { RouteProp } from '@react-navigation/native';
-import React, { useEffect, useRef, useState } from 'react';
-import { Animated, Easing, Image, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Image, Text, View } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from './../components/Redux/store';
+import Animation from './animation';
 import Background from './background';
 import config from './config.json';
 import { alphabetCard } from './styles';
@@ -113,30 +114,6 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
         );
     };
 
-    const animatedValue = useRef(new Animated.Value(0)).current;
-
-    useEffect(() => {
-        Animated.sequence([
-            Animated.timing(animatedValue, {
-                toValue: 5,
-                duration: 600,
-                easing: Easing.inOut(Easing.ease),
-                useNativeDriver: true,
-            }),
-            Animated.timing(animatedValue, {
-                toValue: 0,
-                duration: 500,
-                easing: Easing.inOut(Easing.ease),
-                useNativeDriver: true,
-            }),
-        ]).start();
-    }, [animatedValue]);
-
-    const translateX = animatedValue.interpolate({
-        inputRange: [0, 2],
-        outputRange: [0, 10],
-    });
-
     return (
         <Background>
             <GestureRecognizer
@@ -172,8 +149,7 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
                             message={word}
                         />
                     </View>
-
-                    <Animated.View style={{ transform: [{ translateX }] }}>
+                    <Animation>
                         <FontAwesome.Button
                             name="hand-o-up"
                             backgroundColor="inherit"
@@ -181,7 +157,7 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
                         >
                             Swipe Left/Right
                         </FontAwesome.Button>
-                    </Animated.View>
+                    </Animation>
                 </View>
             </GestureRecognizer>
         </Background>
