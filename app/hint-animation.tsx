@@ -5,7 +5,7 @@ interface AnimationProps {
     children: ReactNode;
 }
 
-const Animation = ({ children }: AnimationProps) => {
+const HintAnimation = ({ children }: AnimationProps) => {
     const animatedValue = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -38,4 +38,4 @@ const Animation = ({ children }: AnimationProps) => {
     );
 };
 
-export default Animation;
+export default HintAnimation;

@@ -9,9 +9,9 @@ import { Image, Text, View } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from './../components/Redux/store';
-import Animation from './animation';
 import Background from './background';
 import config from './config.json';
+import HintAnimation from './hint-animation';
 import { alphabetCard } from './styles';
 /**
  *
@@ -149,7 +149,7 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
                             message={word}
                         />
                     </View>
-                    <Animation>
+                    <HintAnimation>
                         <FontAwesome.Button
                             name="hand-o-up"
                             backgroundColor="inherit"
@@ -157,7 +157,7 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
                         >
                             Swipe Left/Right
                         </FontAwesome.Button>
-                    </Animation>
+                    </HintAnimation>
                 </View>
             </GestureRecognizer>
         </Background>
