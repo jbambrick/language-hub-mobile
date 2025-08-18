@@ -2,8 +2,8 @@ import { AppAudio } from '@/components/audio/app-audio';
 import { useConfig } from '@/components/Redux/config';
 import { fetchAlphabets } from '@/components/Redux/store/slices/alphabet-slice';
 import { selectAlphabet } from '@/components/Redux/store/slices/selectors';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { RouteProp } from '@react-navigation/native';
-import { useAudioPlayer } from 'expo-audio';
 import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
@@ -11,8 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from './../components/Redux/store';
 import Background from './background';
 import config from './config.json';
-import { alphabetCard, alphabetDetailStyle } from './styles';
-
+import HintAnimation from './hint-animation';
+import { alphabetCard } from './styles';
 /**
  *
  * TODO Fix the project.json (remove package.json?) so that you can import
@@ -33,11 +33,8 @@ const isUndefined = (input: unknown): input is undefined =>
 const isNullOrUndefined = (input: unknown): input is null | undefined =>
     isNull(input) || isUndefined(input);
 
-export function AlphabetCardDetailScreen({
-    route,
-}: {
-    route: AlphabetCardDetailRouteProp;
-}) {
+//TODO use a proper type
+export function AlphabetCardDetailScreen({ route }: { route: any }) {
     const {
         env: { BASE_API_URL, TARGET_ALPHABET_NAME },
     } = useConfig();
@@ -100,15 +97,8 @@ export function AlphabetCardDetailScreen({
         return <Text>Card not found.</Text>;
     }
 
-    const {
-        word,
-        letter,
-        sequence_number,
-        card_image,
-        letter_audio,
-        word_audio,
-        standalone_image,
-    } = selectedCard;
+    const { word, letter, letter_audio, word_audio, standalone_image } =
+        selectedCard;
 
     const swipeRight = () => {
         setSelectedLetterSequenceNumber(
@@ -123,14 +113,6 @@ export function AlphabetCardDetailScreen({
             (selectedLetterSequenceNumber % alphabetCards.length) + 1
         );
     };
-
-    const letterAudioSource = `${BASE_API_URL}/resources/mediaitems/download?name=${letter_audio}`;
-
-    const wordAudioSource = `${BASE_API_URL}/resources/mediaitems/download?name=${word_audio}`;
-
-    const player = useAudioPlayer(letterAudioSource);
-
-    const player2 = useAudioPlayer(wordAudioSource);
 
     return (
         <Background>
@@ -153,7 +135,6 @@ export function AlphabetCardDetailScreen({
                                 testID={`loadedImage`}
                                 onError={() => setImageError(true)}
                                 resizeMode="contain"
-                                // style={{ width: 100, height: 100 }}
                                 source={{
                                     uri: `${BASE_API_URL}/resources/mediaitems/download?name=${standalone_image}`,
                                 }}
@@ -168,12 +149,15 @@ export function AlphabetCardDetailScreen({
                             message={word}
                         />
                     </View>
-
-                    <View>
-                        <Text style={alphabetDetailStyle.hint}>
+                    <HintAnimation>
+                        <FontAwesome.Button
+                            name="hand-o-up"
+                            backgroundColor="inherit"
+                            style={{ margin: 'auto' }}
+                        >
                             Swipe Left/Right
-                        </Text>
-                    </View>
+                        </FontAwesome.Button>
+                    </HintAnimation>
                 </View>
             </GestureRecognizer>
         </Background>
