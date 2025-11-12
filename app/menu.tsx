@@ -1,5 +1,7 @@
 import { fetchAlphabets } from '@/components/Redux/store/slices/alphabet-slice';
 import { selectAlphabet } from '@/components/Redux/store/slices/selectors';
+import { ParamListBase } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Image } from 'expo-image';
 import { useEffect } from 'react';
 import {
@@ -26,7 +28,9 @@ type NavigationState = {
 };
 
 //TODO use a proper type
-export const MenuScreen = ({ navigation }: any) => {
+export function MenuScreen({
+    navigation,
+}: NativeStackScreenProps<ParamListBase, 'Menu'>) {
     const { width } = useWindowDimensions();
 
     const dispatch = useDispatch<AppDispatch>();
@@ -109,6 +113,6 @@ export const MenuScreen = ({ navigation }: any) => {
             </ScrollView>
         </Background>
     );
-};
+}
 
 export default MenuScreen;
