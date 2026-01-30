@@ -28,14 +28,12 @@ export default function HomeScreen() {
                         <Image
                             contentFit="contain"
                             priority={'high'}
-                            source={{
-                                uri: config.appImage,
-                            }}
+                            source={require('../assets/images/tng_icon_semi-reversed.webp')}
                             style={[
                                 homeScreen.homeImage,
-                                { marginTop: width > height ? 0 : 120 },
-                                { width: width > height ? 100 : 130 },
-                                { height: width > height ? 100 : 130 },
+                                { marginTop: width > height ? 0 : 110 },
+                                { width: width > height ? 100 : 150 },
+                                { height: width > height ? 100 : 150 },
                             ]}
                         />
                         <Text
@@ -43,6 +41,7 @@ export default function HomeScreen() {
                                 homeScreen.appTitle,
                                 { margin: width > height ? 0 : 20 },
                             ]}
+                            allowFontScaling={false}
                         >
                             {appName}
                         </Text>
@@ -53,6 +52,7 @@ export default function HomeScreen() {
                                 homeScreen.tagline,
                                 { margin: width > height ? 10 : 38 },
                             ]}
+                            allowFontScaling={false}
                         >
                             Explore the {appName}. Learn {alphabetLanguage}{' '}
                             letters, words, and pronounciation with audio.
@@ -62,14 +62,21 @@ export default function HomeScreen() {
                     <View
                         style={[
                             homeScreen.button,
-                            { width: width > height ? '40%' : '80%' },
+                            {
+                                width: width > height ? '40%' : '80%',
+                                borderWidth: 1,
+                                borderColor: 'black',
+                            },
                         ]}
                     >
                         <Pressable
                             testID="Menu"
                             onPress={() => navigation.navigate('Menu')}
                         >
-                            <Text style={alphabetButton.alphabetName}>
+                            <Text
+                                style={alphabetButton.alphabetName}
+                                allowFontScaling={false}
+                            >
                                 Alphabet
                             </Text>
                         </Pressable>
@@ -78,47 +85,30 @@ export default function HomeScreen() {
                     <View
                         style={[
                             homeScreen.button,
-                            { width: width > height ? '40%' : '80%' },
+                            {
+                                width: width > height ? '40%' : '80%',
+                                backgroundColor: 'transparent',
+                                elevation: 0,
+                                shadowOpacity: 0,
+                                borderWidth: 2,
+                                borderColor: 'white',
+                            },
                         ]}
                     >
                         <Pressable
                             testID="Credits"
+                            android_ripple={null}
                             onPress={() => navigation.navigate('Credits')}
                         >
-                            <Text style={alphabetButton.alphabetName}>
+                            <Text
+                                style={alphabetButton.credits}
+                                allowFontScaling={false}
+                            >
                                 Credits
                             </Text>
                         </Pressable>
                     </View>
                 </ScrollView>
-                <View
-                    style={[
-                        homeScreen.footer,
-                        { display: width > height ? 'none' : 'flex' },
-                    ]}
-                >
-                    <Text style={[homeScreen.footerText]}>
-                        A project built on the
-                        <View
-                            style={{
-                                justifyContent: 'center',
-                                alignSelf: 'center',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <Image
-                                source={{
-                                    uri: config.coscradLogoUrl,
-                                }}
-                                alt="Coscrad"
-                                contentFit="cover"
-                                style={[homeScreen.coscradImage]}
-                                contentPosition={'bottom'}
-                            />
-                        </View>
-                        platform.
-                    </Text>
-                </View>
             </View>
         </Background>
     );

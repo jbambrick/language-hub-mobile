@@ -53,7 +53,12 @@ export const MenuScreen = ({ navigation }: any) => {
                         }}
                         contentFit="contain"
                     />
-                    <Text style={[loadingComponent.text]}>Loading</Text>
+                    <Text
+                        style={[loadingComponent.text]}
+                        allowFontScaling={false}
+                    >
+                        Loading
+                    </Text>
                 </View>
             </Background>
         );
@@ -63,7 +68,9 @@ export const MenuScreen = ({ navigation }: any) => {
         // TODO break out a Loading component
         return (
             <Background>
-                <Text style={[loadingComponent.text]}>Loading...</Text>
+                <Text style={[loadingComponent.text]} allowFontScaling={false}>
+                    Loading...
+                </Text>
             </Background>
         );
     }
@@ -102,7 +109,12 @@ export const MenuScreen = ({ navigation }: any) => {
                                 });
                             }}
                         >
-                            <Text style={[menuScreen.alphabet]}>{letter}</Text>
+                            <Text
+                                style={[menuScreen.alphabet]}
+                                allowFontScaling={false}
+                            >
+                                {letter}
+                            </Text>
                         </Pressable>
                     )
                 )}

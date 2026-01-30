@@ -5,7 +5,6 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
-import { launchArguments } from 'expo-launch-arguments';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
@@ -35,7 +34,7 @@ export default function RootLayout() {
     const [config, setConfig] = useState<ConfigStore | null>(null);
 
     useEffect(() => {
-        const configOverrides = launchArguments.configOverrides || {};
+        const configOverrides = {};
         setUpConfig(configOverrides).then(setConfig);
     }, []);
 

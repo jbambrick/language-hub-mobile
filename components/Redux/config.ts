@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
 
-
 export interface ConfigStore {
     config: Config;
 }
@@ -17,12 +16,15 @@ export const initialConfig: ConfigStore = {
     config: {
         env: {
             BASE_API_URL: process.env.EXPO_PUBLIC_BASE_API_URL || '',
-            TARGET_ALPHABET_NAME: process.env.EXPO_PUBLIC_TARGET_ALPHABET_NAME || '',
+            TARGET_ALPHABET_NAME:
+                process.env.EXPO_PUBLIC_TARGET_ALPHABET_NAME || '',
         },
     },
 };
 
-export const setUpConfig = async (overrides: Partial<ConfigStore> = {}): Promise<ConfigStore> => {
+export const setUpConfig = async (
+    overrides: Partial<ConfigStore> = {}
+): Promise<ConfigStore> => {
     return Promise.resolve({ ...initialConfig, ...overrides });
 };
 
