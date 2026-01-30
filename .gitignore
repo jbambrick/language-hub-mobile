@@ -32,12 +32,10 @@ yarn-error.*
 
 # local env files
 .env*.local
-*.env
 
 # typescript
 *.tsbuildinfo
 
 # TODO Be careful not to git-ignore third-party configs
-**config.json
 
 app-example

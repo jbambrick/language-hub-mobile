@@ -1,45 +1,58 @@
 {
-  "expo": {
-    "name": "alphabet-mobile",
-    "slug": "alphabet-mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "alphabetmobile",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.alphabetmobile"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.alphabetmobile"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+    "expo": {
+        "name": "Tŝilhqot’in Alphabet",
+        "slug": "alphabet-mobile",
+        "version": "0.0.1",
+        "orientation": "portrait",
+        "icon": "./assets/images/icon.png",
+        "scheme": "alphabetmobile",
+        "userInterfaceStyle": "automatic",
+        "newArchEnabled": true,
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "ca.tsilhqotinlanguage.alphabet"
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/images/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "edgeToEdgeEnabled": true,
+            "package": "ca.tsilhqotinlanguage.alphabet",
+            "blockedPermissions": ["android.permission.RECORD_AUDIO"]
+        },
+        "web": {
+            "bundler": "metro",
+            "output": "static",
+            "favicon": "./assets/images/favicon.png"
+        },
+        "plugins": [
+            "expo-router",
+            [
+                "expo-splash-screen",
+                {
+                    "image": "./assets/images/splash-icon.png",
+                    "imageWidth": 200,
+                    "resizeMode": "contain",
+                    "backgroundColor": "#ffffff"
+                }
+            ],
+            "expo-audio",
+            "expo-asset"
+        ],
+        "experiments": {
+            "typedRoutes": true
+        },
+        "extra": {
+            "router": {},
+            "eas": {
+                "projectId": "261d1bb1-8fbf-42d2-951b-264c8a5b540b"
+            }
+        },
+
+        "androidNavigationBar": {
+            "backgroundColor": "#ffffff",
+            "barStyle": "light-content"
         }
-      ],
-      "expo-audio"
-    ],
-    "experiments": {
-      "typedRoutes": true
     }
-  }
 }

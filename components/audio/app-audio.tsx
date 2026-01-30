@@ -40,11 +40,12 @@ export const AppAudio = ({ url, message }: AppAudioProps) => {
                     fontWeight: '700',
                     color: 'black',
                 }}
+                allowFontScaling={false}
             >
                 {message}
             </Text>
         </Pressable>
     ) : (
-        <Text>Error</Text>
+        <Text allowFontScaling={false}>Error</Text>
     );
 };

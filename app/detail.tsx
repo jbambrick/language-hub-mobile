@@ -69,14 +69,14 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
                         uri: config.appImage,
                     }}
                 />
-                <Text>Loading</Text>
+                <Text allowFontScaling={false}>Loading</Text>
             </View>
         );
     }
 
     if (!isNullOrUndefined(errorInfo)) {
         // TODO display error code
-        return <Text>Error: {errorInfo.message}</Text>;
+        return <Text allowFontScaling={false}>Error: {errorInfo.message}</Text>;
     }
 
     const {
@@ -94,7 +94,7 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
     // The data is validate so really this is a system error
     if (isUndefined(selectedCard)) {
         // TODO handle this properly
-        return <Text>Card not found.</Text>;
+        return <Text allowFontScaling={false}>Card not found.</Text>;
     }
 
     const { word, letter, letter_audio, word_audio, standalone_image } =
@@ -140,7 +140,10 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
                                 }}
                             />
                         ) : (
-                            <Text testID={`imageError`}>
+                            <Text
+                                testID={`imageError`}
+                                allowFontScaling={false}
+                            >
                                 Error loading image.
                             </Text>
                         )}
@@ -155,8 +158,23 @@ export function AlphabetCardDetailScreen({ route }: { route: any }) {
                             backgroundColor="inherit"
                             style={{ margin: 'auto' }}
                         >
-                            Swipe Left/Right
+                            <Text
+                                style={{ color: 'white' }}
+                                allowFontScaling={false}
+                            >
+                                Swipe Left/Right
+                            </Text>
                         </FontAwesome.Button>
+                        <View style={{ margin: 'auto' }}>
+                            <FontAwesome.Button
+                                name="volume-up"
+                                backgroundColor="inherit"
+                            >
+                                <Text style={{ color: 'white' }}>
+                                    Tap letter\word for audio
+                                </Text>
+                            </FontAwesome.Button>
+                        </View>
                     </HintAnimation>
                 </View>
             </GestureRecognizer>

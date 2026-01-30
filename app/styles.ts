@@ -22,18 +22,18 @@ const styles = StyleSheet.create({
 
 export const homeScreen = StyleSheet.create({
     background: {
-        height: '100%',
+        minHeight: '100%',
         fontFamily: theme.fonts.primary,
     },
     button: {
         backgroundColor: theme.colors.accent,
         padding: 12,
         paddingTop: 6,
-        width: '80%',
-        borderRadius: 24,
+        borderRadius: 4,
         alignSelf: 'center',
         marginBottom: 16,
         elevation: 8,
+        borderWidth: 1,
     },
     appTitle: {
         textAlign: 'center',
@@ -43,8 +43,8 @@ export const homeScreen = StyleSheet.create({
         fontWeight: '700',
     },
     homeImage: {
-        width: 130,
-        height: 130,
+        width: 20,
+        height: 20,
         alignSelf: 'center',
     },
     coscradImage: {
@@ -58,13 +58,9 @@ export const homeScreen = StyleSheet.create({
         margin: 38,
         fontSize: theme.fontSizes.small,
         marginTop: 0,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     footer: {
-        position: 'absolute',
-        bottom: 10,
-        left: 0,
-        right: 0,
         padding: 20,
         justifyContent: 'center',
         alignItems: 'center',
@@ -72,13 +68,13 @@ export const homeScreen = StyleSheet.create({
     footerText: {
         color: theme.colors.text,
         fontSize: theme.fontSizes.small,
-        marginBottom:20
     },
 });
 
 export const creditsScreen = StyleSheet.create({
     page: {
         margin: 6,
+        marginTop: 15,
         textAlign: 'center',
     },
     text: {
@@ -142,6 +138,14 @@ export const alphabetButton = StyleSheet.create({
         color: theme.colors.text,
         fontSize: theme.fontSizes.medium,
         fontFamily: theme.fonts.secondary,
+    },
+    credits: {
+        color: 'white',
+        fontSize: theme.fontSizes.medium,
+        fontFamily: theme.fonts.primary,
+        textAlign: 'center',
+        fontWeight: 'normal',
+        backgroundColor: 'transparent',
     },
 });
 
