@@ -38,6 +38,5 @@ yarn-error.*
 *.tsbuildinfo
 
 # TODO Be careful not to git-ignore third-party configs
-**config.json
 
 app-example
