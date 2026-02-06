@@ -84,6 +84,7 @@ export default function RootLayout() {
                                     name="Detail"
                                     component={AlphabetCardDetailScreen}
                                     options={{ title: appName }}
+                                    ini
                                 />
                                 <Stack.Screen
                                     name="Credits"

@@ -1,0 +1,19 @@
+{
+    "colors": {
+        "primary": "#ea1889",
+        "secondary": "#2044e0",
+        "teritary": "#2044e0",
+        "text": "#ffff",
+        "textDark": "#000000",
+        "accent": "#ffff"
+    },
+    "fonts": {
+        "primary": "Arial",
+        "secondary": "Arial"
+    },
+    "fontSizes": {
+        "large": 34,
+        "medium": 26,
+        "small": 14
+    }
+}

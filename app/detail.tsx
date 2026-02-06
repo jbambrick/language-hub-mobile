@@ -34,7 +34,11 @@ const isNullOrUndefined = (input: unknown): input is null | undefined =>
     isNull(input) || isUndefined(input);
 
 //TODO use a proper type
-export function AlphabetCardDetailScreen({ route }: { route: any }) {
+export function AlphabetCardDetailScreen({
+    route,
+}: {
+    route: AlphabetCardDetailRouteProp;
+}) {
     const {
         env: { BASE_API_URL, TARGET_ALPHABET_NAME },
     } = useConfig();
